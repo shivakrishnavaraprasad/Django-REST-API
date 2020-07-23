@@ -12,3 +12,4 @@ urlpatterns = [
     path('viewset/<int:pk>/', include(router.urls)),
 ]
 
+# goto viewset/articles/id/
