@@ -1,9 +1,14 @@
 from django.contrib import admin
 from django.urls import path, include
-from . views import GenericApiView
+from . views import ArticleViewSet
+from rest_framework.routers import DefaultRouter
+
+
+router = DefaultRouter()
+router.register('articles', ArticleViewSet, basename='articles')
 
 urlpatterns = [    
-
-    path('generic/article/<int:id>/', GenericApiView.as_view(), name='generic_views'),
+    path('viewset/', include(router.urls)),
+    path('viewset/<int:pk>/', include(router.urls)),
 ]
 
