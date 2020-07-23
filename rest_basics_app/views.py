@@ -23,7 +23,10 @@ class GenericApiView(generics.GenericAPIView, mixins.ListModelMixin,
     queryset = Article.objects.all()
     lookup_field = 'id'
 
+    # login authentication
     # authentication_classes = [SessionAuthentication, BasicAuthentication]
+
+    # Token authentication
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
