@@ -24,7 +24,10 @@ class GenericApiView(generics.GenericAPIView, mixins.ListModelMixin,
     lookup_field = 'id'
 
     def get(self, request, id=None):
-        
+        if id:
+            return self.retrieve(request)
+        else:
+            return self.list(request)
         return self.list(request)
 
     def post(self, request):
